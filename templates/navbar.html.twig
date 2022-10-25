@@ -10,9 +10,10 @@
         <a {% if app.request.pathinfo == "/profil" %} class="nav-link active"{% else %} class="nav-link" {% endif %} href="./profil">Profil</a>
         {% if user is defined %}
         <a class="nav-link position-absolute top-2 end-0" href="./profil">{{ user.email }}</a>
-        {% else %}
-        <a href="./register"> <button type="button" class="btn btn-primary">Inscription</button></a>
-        <a href="./login"> <button type="button" class="btn btn-success">Connexion</button>
+        {% elseif app.request.pathinfo != "/register" %}
+        <a class="nav-link position-absolute top-2 end-0" href="./register"> <button type="button" class="btn btn-primary">Inscription</button></a>
+        {% elseif app.request.pathinfo != "/login" %}
+        <a class="nav-link position-absolute top-2 end-0" href="./login"> <button type="button" class="btn btn-success">Connexion</button></a>
         {% endif %}
       </div>
     </div>
