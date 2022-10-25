@@ -7,10 +7,12 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a {% if app.request.pathinfo == "/index" %} class="nav-link active"{% else %} class="nav-link" {% endif %} aria-current="page" href="./index">Accueil</a>
-        <a class="nav-link" href="#">Features</a>
         <a {% if app.request.pathinfo == "/profil" %} class="nav-link active"{% else %} class="nav-link" {% endif %} href="./profil">Profil</a>
         {% if user is defined %}
         <a class="nav-link position-absolute top-2 end-0" href="./profil">{{ user.email }}</a>
+        {% else %}
+        <a href="./register"> <button type="button" class="btn btn-primary">Inscription</button></a>
+        <a href="./login"> <button type="button" class="btn btn-success">Connexion</button>
         {% endif %}
       </div>
     </div>
