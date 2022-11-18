@@ -7,13 +7,19 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a {% if app.request.pathinfo == "/index" %} class="nav-link active"{% else %} class="nav-link" {% endif %} aria-current="page" href="./index">Accueil</a>
-        <a {% if app.request.pathinfo == "/profil" %} class="nav-link active"{% else %} class="nav-link" {% endif %} href="./profil">Profil</a>
+        {# <a {% if app.request.pathinfo == "/profil" %} class="nav-link active"{% else %} class="nav-link" {% endif %} href="./profil">Profil</a> #}
         {% if user is defined %}
-        <a class="nav-link position-absolute top-2 end-0" href="./profil">{{ user.email }}</a>
+        <li class="nav-item dropdown position-absolute top-1 end-0">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.email }}</a>
+          <ul class="dropdown-menu">
+            <li><a class="nav-link" href="./profil"> <button type="button" class="btn btn-primary">Profil</button></a></li>
+            <li><a class="nav-link" href="./logout"> <button type="button" class="btn btn-danger">Deconnexion</button></a></li>
+          </ul>
+        </li>
         {% elseif app.request.pathinfo != "/register" %}
-        <a class="nav-link position-absolute top-2 end-0" href="./register"> <button type="button" class="btn btn-primary">Inscription</button></a>
+        <a class="nav-link position-absolute top-0 end-0" href="./register"> <button type="button" class="btn btn-primary">Inscription</button></a>
         {% elseif app.request.pathinfo != "/login" %}
-        <a class="nav-link position-absolute top-2 end-0" href="./login"> <button type="button" class="btn btn-success">Connexion</button></a>
+        <a class="nav-link position-absolute top-0 end-0" href="./login"> <button type="button" class="btn btn-success">Connexion</button></a>
         {% endif %}
       </div>
     </div>

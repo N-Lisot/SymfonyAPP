@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Hello LoginController!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
 
@@ -25,14 +25,16 @@
 
 
       <div class="wrapper">
-    <form class="form-signin" action="{{ path('app_login') }}" method="post">       
-      <h2 class="form-signin-heading">Please login</h2>
-      <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" placeholder="Email Address" required=""/>
-      <input type="password" class="form-control" id="password" name="_password" placeholder="Password" required=""/>      
-      {# <label class="checkbox">
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-      </label> #}
-      <button class="btn mt-2 btn-primary btn-block" type="submit">Login</button>   
-    </form>
-  </div>
+        <form class="form-signin" action="{{ path('app_login') }}" method="post">       
+          <h2 class="form-signin-heading">Connexion :</h2>
+          <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" placeholder="Adresse Email " required=""/>
+          <input type="password" class="form-control mt-2" id="password" name="_password" placeholder="Mot de passe" required=""/>      
+          {# <label class="checkbox">
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+          </label> #}
+          <button class="btn mt-4 btn-primary btn-block btn-lg" type="submit">Login</button>   
+        </form>
+    </div>
+
+    
 {% endblock %}
